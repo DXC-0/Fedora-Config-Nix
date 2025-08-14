@@ -80,10 +80,6 @@ echo " Activation des services "
 sudo systemctl enable lightdm.service
 sudo systemctl set-default graphical.target
 
-echo "🛡️ Renforcement du pare-feu"
-sudo firewall-cmd --set-default-zone=block --permanent
-sudo systemctl restart firewalld.service
-
 echo " Installation de Nix..."
 curl -L https://nixos.org/nix/install | sh
 
