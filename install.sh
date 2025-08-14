@@ -99,7 +99,7 @@ cp ./home.nix ~/.config/nixpkgs/home.nix
 echo " Application de la configuration Home Manager..."
 home-manager switch
 
-echo "✅ Configuration complète terminée ! 🎉"
+echo "✅ Installation terminée !"
 
 echo "Redémarrage dans 5 secondes..."
 sleep 5
