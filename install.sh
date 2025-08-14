@@ -87,11 +87,12 @@ sudo -u "$NON_ROOT_USER" bash -c 'curl -L https://nixos.org/nix/install | sh'
 
 echo "🏠 Installation de Home Manager..."
 sudo -u "$NON_ROOT_USER" bash -c '
+  export HOME=$(eval echo ~$NON_ROOT_USER)
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   nix-shell -p home-manager --run "home-manager init"
   mkdir -p "$HOME/.config/nixpkgs"
   cp ./home.nix "$HOME/.config/nixpkgs/home.nix"
-  home-manager switch
+  nix-shell -p home-manager --run "home-manager switch"
 '
 
 echo "✅ Installation terminée !"
