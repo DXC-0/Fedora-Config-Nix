@@ -83,10 +83,10 @@ sudo systemctl set-default graphical.target
 NON_ROOT_USER=$(logname)
 USER_HOME=$(eval echo "~$NON_ROOT_USER")
 
-echo "🐧 Installation de Nix en mode mono-utilisateur..."
+echo "Installation de Nix"
 sudo -u "$NON_ROOT_USER" bash -c 'curl -L https://nixos.org/nix/install | sh'
 
-echo "🔁 Configuration de l'environnement Nix pour l'utilisateur $NON_ROOT_USER"
+echo "Configuration de l'environnement Nix pour l'utilisateur $NON_ROOT_USER"
 sudo -u "$NON_ROOT_USER" bash -c "
   echo '. \$HOME/.nix-profile/etc/profile.d/nix.sh' >> \"$USER_HOME/.bashrc\"
   echo '. \$HOME/.nix-profile/etc/profile.d/nix.sh' >> \"$USER_HOME/.zshrc\"
@@ -100,7 +100,7 @@ sudo -u "$NON_ROOT_USER" bash -c "
   nix-shell '<home-manager>' -A install
 "
 
-echo "📁 Configuration Home Manager"
+echo "Configuration Home Manager"
 sudo -u "$NON_ROOT_USER" bash -c "
   mkdir -p \"$USER_HOME/.config/nixpkgs\"
   cp ./home.nix \"$USER_HOME/.config/nixpkgs/home.nix\"
