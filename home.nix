@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.username = "ton_nom_utilisateur";
-  home.homeDirectory = "/home/ton_nom_utilisateur";
+  home.username = "$USER";
+  home.homeDirectory = "$HOME";
   home.stateVersion = "20.09";
 
   targets.genericLinux.enable = true;
