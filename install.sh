@@ -82,7 +82,6 @@ sudo systemctl set-default graphical.target
 
 echo "🛡️ Renforcement du pare-feu"
 sudo firewall-cmd --set-default-zone=block --permanent
-sudo firewall-cmd --reload
 sudo systemctl restart firewalld.service
 
 echo " Installation de Nix..."
