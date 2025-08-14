@@ -3,7 +3,6 @@
 set -e  # Stop on error
 
 # Journalisation :
-
 exec > >(tee -i setup.log)
 exec 2>&1
 
@@ -80,20 +79,20 @@ echo " Activation des services "
 sudo systemctl enable lightdm.service
 sudo systemctl set-default graphical.target
 
-echo " Installation de Nix..."
-curl -L https://nixos.org/nix/install | sh
+# Utilisateur non root (le script nix n'accepte pas sudo)
+NON_ROOT_USER=$(logname)
 
-. ~/.nix-profile/etc/profile.d/nix.sh
+echo " Installation de Nix..."
+sudo -u "$NON_ROOT_USER" bash -c 'curl -L https://nixos.org/nix/install | sh'
 
 echo "🏠 Installation de Home Manager..."
-nix-shell -p home-manager --run 'home-manager init'
-
-echo " Copie de la configuration Home Manager..."
-mkdir -p ~/.config/nixpkgs
-cp ./home.nix ~/.config/nixpkgs/home.nix
-
-echo " Application de la configuration Home Manager..."
-home-manager switch
+sudo -u "$NON_ROOT_USER" bash -c '
+  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  nix-shell -p home-manager --run "home-manager init"
+  mkdir -p "$HOME/.config/nixpkgs"
+  cp ./home.nix "$HOME/.config/nixpkgs/home.nix"
+  home-manager switch
+'
 
 echo "✅ Installation terminée !"
 
