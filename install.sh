@@ -58,6 +58,7 @@ sudo dnf install -y \
   xdg-desktop-portal-wlr
 
 echo "📦 Installation des applications Flatpak 📦"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y \
   flathub com.discordapp.Discord \
   flathub com.github.PintaProject.Pinta \
