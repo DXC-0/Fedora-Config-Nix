@@ -58,23 +58,23 @@ sudo dnf install -y \
   xdg-desktop-portal-wlr
 
 echo "📦 Installation des applications Flatpak 📦"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install -y \
-  flathub com.discordapp.Discord \
-  flathub com.github.PintaProject.Pinta \
-  flathub com.github.tchx84.Flatseal \
-  flathub com.vscodium.codium \
-  flathub dev.geopjr.Tuba \
-  flathub io.freetubeapp.FreeTube \
-  flathub io.gitlab.librewolf-community \
-  flathub org.chromium.Chromium \
-  flathub io.podman_desktop.PodmanDesktop \
-  flathub org.gnome.Boxes \
-  flathub org.gnome.eog \
-  flathub org.gnome.TextEditor \
-  flathub org.pulseaudio.pavucontrol \
-  flathub org.signal.Signal \
-  flathub org.videolan.VLC
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub -y \
+  com.discordapp.Discord \
+  com.github.PintaProject.Pinta \
+  com.github.tchx84.Flatseal \
+  com.vscodium.codium \
+  dev.geopjr.Tuba \
+  io.freetubeapp.FreeTube \
+  io.gitlab.librewolf-community \
+  org.chromium.Chromium \
+  io.podman_desktop.PodmanDesktop \
+  org.gnome.Boxes \
+  org.gnome.eog \
+  org.gnome.TextEditor \
+  org.pulseaudio.pavucontrol \
+  org.signal.Signal \
+  org.videolan.VLC
 
 echo " Activation des services "
 sudo systemctl enable lightdm.service
