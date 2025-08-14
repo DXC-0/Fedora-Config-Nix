@@ -79,21 +79,39 @@ echo " Activation des services "
 sudo systemctl enable lightdm.service
 sudo systemctl set-default graphical.target
 
-# Utilisateur non root (le script nix n'accepte pas sudo)
+# Utilisateur non-root
 NON_ROOT_USER=$(logname)
+USER_HOME=$(eval echo "~$NON_ROOT_USER")
 
-echo " Installation de Nix..."
-sudo -u "$NON_ROOT_USER" bash -c 'curl -L https://nixos.org/nix/install | sh'
+echo "🐧 Installation de Nix en mode multi-utilisateur..."
+curl -L https://nixos.org/nix/install | sh -s -- --daemon
 
-echo "🏠 Installation de Home Manager..."
-sudo -u "$NON_ROOT_USER" bash -c '
-  export HOME=$(eval echo ~$NON_ROOT_USER)
-  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
-  home-manager init
-  mkdir -p "$HOME/.config/nixpkgs"
-  cp ./home.nix "$HOME/.config/nixpkgs/home.nix"
+echo "🔁 Rechargement de l'environnement Nix pour l'utilisateur $NON_ROOT_USER"
+sudo -u "$NON_ROOT_USER" bash -c "
+  echo '. /etc/profile.d/nix.sh' >> \"$USER_HOME/.bashrc\"
+  echo '. /etc/profile.d/nix.sh' >> \"$USER_HOME/.zshrc\"
+"
+
+echo "🧪 Vérification de Nix"
+sudo -u "$NON_ROOT_USER" bash -c "
+  . /etc/profile.d/nix.sh
+  nix --version
+"
+
+echo "🏠 Installation de Home Manager"
+sudo -u "$NON_ROOT_USER" bash -c "
+  . /etc/profile.d/nix.sh
+  nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+  nix-channel --update
+  nix-shell '<home-manager>' -A install
+"
+
+echo "📁 Configuration Home Manager"
+sudo -u "$NON_ROOT_USER" bash -c "
+  mkdir -p \"$USER_HOME/.config/nixpkgs\"
+  cp ./home.nix \"$USER_HOME/.config/nixpkgs/home.nix\"
+  . /etc/profile.d/nix.sh
   home-manager switch
-'
 
 echo "✅ Installation terminée !"
 
