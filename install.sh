@@ -85,8 +85,6 @@ USER_HOME=$(eval echo "~$NON_ROOT_USER")
 
 echo "Installation de Nix"
 sudo -u "$NON_ROOT_USER" bash -c 'curl -L https://nixos.org/nix/install | sh'
-
-echo "Configuration de l'environnement Nix pour l'utilisateur $NON_ROOT_USER"
 sudo -u "$NON_ROOT_USER" bash -c "
   echo '. \$HOME/.nix-profile/etc/profile.d/nix.sh' >> \"$USER_HOME/.bashrc\"
   echo '. \$HOME/.nix-profile/etc/profile.d/nix.sh' >> \"$USER_HOME/.zshrc\"
