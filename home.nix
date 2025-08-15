@@ -289,6 +289,8 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swayidle"
 spawn-at-startup "dunst"
 spawn-at-startup "swaybg" "--image" "/home/alerion/.config/niri/wall.png"
+spawn-at-startup "dconf" "write" "/org/gnome/desktop/interface/color-scheme" "'prefer-dark'"
+spawn-at-startup "dconf" "write" "/org/gnome/desktop/interface/icon-theme" "'Flatery-Indigo-Dark'"
 
 // Screen Resolution
 
