@@ -105,9 +105,6 @@ sudo -u "$NON_ROOT_USER" bash -c "
   home-manager switch
 "
 
-# Lien Symbolique pour gérer LightDM depuis le home 
-sudo ln -sf /home/alerion/.config/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
-
 echo "Installation terminée !"
 
 echo "Redémarrage dans 5 secondes..."
