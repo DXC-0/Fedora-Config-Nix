@@ -366,27 +366,4 @@
     application/pdf=librewolf.desktop
   '';
 
-home.file.".config/lightdm/lightdm.conf".text = ''
-  [LightDM]
-  autologin-user=alerion
-  autologin-user-timeout=0
-  autologin-session=niri
-  greeter-session=lightdm-gtk-greeter
-
-  [Seat:*]
-  autologin-user=alerion
-  autologin-user-timeout=0
-  autologin-session=niri
-  greeter-session=lightdm-gtk-greeter
-
-  [XDMCPServer]
-  #enabled=false
-  #port=177
-
-  [VNCServer]
-  #enabled=false
-  #command=Xvnc
-  #port=5900
-'';
-
 }
