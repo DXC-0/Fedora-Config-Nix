@@ -99,6 +99,7 @@
   };
 
 
+
 #### APPLICATIONS LAUNCHER ####
 
   programs.wofi = {
@@ -170,6 +171,8 @@
     '';
   };
 
+
+
 #### NOTIFICATION CENTER DAEMON ####
 
 
@@ -192,6 +195,7 @@
       };
     };
   };
+
 
 
 #### CUSTOM FASTFETCH ####
