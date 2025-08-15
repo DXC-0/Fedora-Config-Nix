@@ -327,8 +327,4 @@ home.file.".config/lightdm/lightdm.conf".text = ''
   #port=5900
 '';
 
-home.activation.copyLightDMConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  cp ${config.home.homeDirectory}/.config/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
-'';
-
 }
