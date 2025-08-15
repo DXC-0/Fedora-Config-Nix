@@ -216,8 +216,6 @@
     };
   };
 
-
-  home.file.".var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db".source = ./config/FreeTube/settings.db;
   programs.freetube = {
     enable = true;
     settings = {
@@ -229,6 +227,16 @@
       maximised = false;
     };
   };
+
+home.activation.linkFreetubeConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  src="$HOME/.config/FreeTube/settings.db"
+  dest="$HOME/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db"
+
+  mkdir -p "$(dirname "$dest")"
+
+  [ -f "$src" ] && ln -sf "$src" "$dest"
+'';
+
 
 
   home.file.".config/niri/config.kdl".text = ''
