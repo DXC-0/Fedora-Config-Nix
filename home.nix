@@ -216,6 +216,8 @@
     };
   };
 
+
+  home.file.".var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db".source = ./config/FreeTube/settings.db;
   programs.freetube = {
     enable = true;
     settings = {
@@ -227,6 +229,7 @@
       maximised = false;
     };
   };
+
 
   home.file.".config/niri/config.kdl".text = ''
     input {
