@@ -112,8 +112,8 @@ sudo sed -i 's/^#\?\s*autologin-session=.*/autologin-session=niri/' /etc/lightdm
 echo "Personnalisation"
 dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
 mv ./wall.png $USER_HOME/.config/niri/wall.png
-git clone https://github.com/cbrnix/Flatery.git
-sudo -u "$NON_ROOT_USER" bash -c "cd Flatery && bash install.sh"
+sudo -u "$NON_ROOT_USER" git clone https://github.com/cbrnix/Flatery.git "$USER_HOME/Flatery"
+sudo -u "$NON_ROOT_USER" bash -c "bash '$USER_HOME/Flatery/install.sh'"
 gsettings set org.gnome.desktop.interface icon-theme 'Flatery-Indigo-Dark'
 
 echo "Installation terminée !"
