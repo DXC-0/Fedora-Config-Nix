@@ -13,7 +13,6 @@
   xdg.enable = true;
 
 
-
 #### ALACRITTY CONFIGURATION ####
 
 home.file.".config/alacritty/alacritty.toml".text = ''
@@ -248,6 +247,55 @@ home.file.".config/alacritty/alacritty.toml".text = ''
       ];
     };
   };
+
+
+
+
+#### FREETUBE (FLATPAK) ####
+
+
+home.file."freetube-settings.db" = {
+    target = ".var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db";
+    text = ''
+      {"_id":"bounds","value":{"x":1280,"y":0,"width":1882,"height":2110,"maximized":false,"fullScreen":false}}
+      {"_id":"defaultQuality","value":"2160"}
+      {"_id":"quickBookmarkTargetPlaylistId","value":"favorites"}
+      {"_id":"theme","value":"catppuccin-mocha"}
+    '';
+    force = true;
+  };
+
+
+
+#### SIGNAL (FLATPAK) ####
+
+
+home.file."signal-preferences.json" = {
+  target = ".var/app/org.signal.Signal/config/Signal/Preferences";
+  text = ''
+    {
+      "browser": {
+        "enable_spellchecking": true
+      },
+      "electron": {
+        "media": {
+          "device_id_salt": "8C1385158A2310A482E111D2D81B42AB"
+        }
+      },
+      "partition": {
+        "per_host_zoom_levels": {
+          "3025485444144788783": {}
+        }
+      },
+      "spellcheck": {
+        "dictionaries": ["fr-FR", "fr"],
+        "dictionary": ""
+      }
+    }
+  '';
+  force = true;
+};
+
 
 
 #### WINDOWS MANAGER (NIRI) CONFIG ####
