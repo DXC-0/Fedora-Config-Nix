@@ -240,21 +240,6 @@
     };
   };
 
-#### FREETUBE CONFIG ####
-
-  programs.freetube = {
-    enable = true;
-    settings = {
-      allowDashAv1Formats = true;
-      checkForUpdates = false;
-      defaultQuality = "2160";
-      baseTheme = "catppuccinMocha";
-      fullscreen = false;
-      maximised = false;
-    };
-  };
-
-
 
 #### WINDOWS MANAGER (NIRI) CONFIG ####
 
