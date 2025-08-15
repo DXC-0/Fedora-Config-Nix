@@ -13,6 +13,7 @@
   xdg.enable = true;
 
 
+
 #### ALACRITTY CONFIGURATION ####
 
 home.file.".config/alacritty/alacritty.toml".text = ''
@@ -80,6 +81,7 @@ home.file.".config/alacritty/alacritty.toml".text = ''
   program = "/bin/bash"
   args = ["--login"]
 '';
+
 
 
 #### TMUX TERMINAL EMULATOR ####
