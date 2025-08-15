@@ -288,7 +288,7 @@ environment {
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swayidle"
 spawn-at-startup "dunst"
-spawn-at-startup "swaybg" "--image" "/home/alerion/wall.png"
+spawn-at-startup "swaybg" "--image" "/home/alerion/.config/niri/wall.png"
 
 // Screen Resolution
 
