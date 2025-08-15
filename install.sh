@@ -27,7 +27,7 @@ sudo dnf install --setopt=install_weak_deps=False -y \
   # alacritty (nix)
   curl \
   neovim \
-  tmux \
+  # tmux (nix)
   btop \
   ddcutil \
   gnome-keyring \
