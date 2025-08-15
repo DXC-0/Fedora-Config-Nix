@@ -236,50 +236,22 @@ input {
                layout "fr"
         }
 
-        // Enable numlock on startup, omitting this setting disables it
         numlock
     }
 
-    // Next sections include libinput settings.
-    // Omitting settings disables them, or leaves them at their default values.
+
     touchpad {
-        // off
         tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
     }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
+
     }
 
     trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // middle-emulation
+
     }
-
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
 }
 
 environment {
@@ -307,14 +279,10 @@ output "DP-1" {
 // Layout Configuration
 
 layout {
-    // Set gaps around windows in logical pixels.
-
     gaps 25
-
     background-color "transparent"
     always-center-single-column
     center-focused-column "never"
-
 
     preset-column-widths {
         proportion 0.33333
@@ -322,11 +290,9 @@ layout {
         proportion 0.66667
     }
 
-
     // New windows default width
 
     default-column-width { proportion 0.5; }
-
 
     // Focus Ring
 
@@ -364,32 +330,18 @@ layout {
 
 // Animation settings.
 
-
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    //slowdown 1.0
 }
 
 
 // Window Rules
 
 window-rule {
-
-    // This regular expression is intentionally made as specific as possible,
-
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
-
 window-rule {
-
-    // Firefox Floating
-
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -403,14 +355,10 @@ window-rule {
 
 
 layer-rule {
-    // This is for swaybg; change for other wallpaper tools.
-    // Find the right namespace by running niri msg layers.
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
 
-
-// Optionally, disable the workspace shadows in the overview.
 overview {
     workspace-shadow {
         off
