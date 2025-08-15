@@ -24,6 +24,7 @@ sudo dnf install -y \
 echo "📦 Installation des outils système 📦"
 sudo dnf install --setopt=install_weak_deps=False -y \
   git \
+  alacritty \
   curl \
   neovim \
   tmux \
