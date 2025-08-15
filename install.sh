@@ -109,6 +109,9 @@ echo "Autologin LightDM"
 sudo sed -i 's/^#\?\s*autologin-user=.*/autologin-user=alerion/' /etc/lightdm/lightdm.conf
 sudo sed -i 's/^#\?\s*autologin-session=.*/autologin-session=niri/' /etc/lightdm/lightdm.conf
 
+echo "Dark Mode"
+dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+
 echo "Installation terminée !"
 
 echo "Redémarrage dans 5 secondes..."
