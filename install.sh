@@ -22,7 +22,7 @@ sudo dnf install -y \
   xorg-x11-drv-nvidia-cuda
 
 echo "📦 Installation des outils système 📦"
-sudo dnf install -y \
+sudo dnf install --setopt=install_weak_deps=False -y \
   git \
   curl \
   neovim \
@@ -36,14 +36,14 @@ sudo dnf install -y \
   git
 
 echo "📦 Installation des outils de conteneurisation 📦"
-sudo dnf install -y \
+sudo dnf install --setopt=install_weak_deps=False -y \
   flatpak \
   podman \
   podman-compose \
   distrobox
 
 echo "📦 Installation du window manager 📦"
-sudo dnf install -y \
+sudo dnf install --setopt=install_weak_deps=False -y \
   swaybg \
   swayidle \
   wl-clipboard \
@@ -108,10 +108,6 @@ sudo -u "$NON_ROOT_USER" bash -c "
 echo "Autologin LightDM"
 sudo sed -i 's/^#\?\s*autologin-user=.*/autologin-user=alerion/' /etc/lightdm/lightdm.conf
 sudo sed -i 's/^#\?\s*autologin-session=.*/autologin-session=niri/' /etc/lightdm/lightdm.conf
-
-echo "Personnalisation"
-dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-mv ./wall.png $HOME/.config/niri/wall.png
 
 echo "Installation terminée !"
 
