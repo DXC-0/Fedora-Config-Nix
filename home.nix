@@ -1,12 +1,20 @@
 { pkgs, ... }:
 
 {
+
+
+##### GLOBAL CONFIGURATION #####
+
   home.username = "alerion";
   home.homeDirectory = "/home/alerion/";
   home.stateVersion = "20.09";
 
   targets.genericLinux.enable = true;
   xdg.enable = true;
+
+
+
+#### TERMINAL #####
 
   programs.alacritty = {
     enable = true;
@@ -66,6 +74,9 @@
   };
 
 
+
+#### TMUX TERMINAL EMULATOR ####
+
   programs.tmux = {
     enable = true;
     extraConfig = ''
@@ -87,6 +98,8 @@
     '';
   };
 
+
+#### APPLICATIONS LAUNCHER ####
 
   programs.wofi = {
     enable = true;
@@ -157,6 +170,9 @@
     '';
   };
 
+#### NOTIFICATION CENTER DAEMON ####
+
+
   services.dunst = {
     enable = true;
     settings = {
@@ -176,6 +192,10 @@
       };
     };
   };
+
+
+#### CUSTOM FASTFETCH ####
+
 
   programs.fastfetch = {
     enable = true;
@@ -216,6 +236,8 @@
     };
   };
 
+#### FREETUBE CONFIG ####
+
   programs.freetube = {
     enable = true;
     settings = {
@@ -227,6 +249,11 @@
       maximised = false;
     };
   };
+
+
+
+#### WINDOWS MANAGER (NIRI) CONFIG ####
+
 
   home.file.".config/niri/config.kdl".text = ''
 
@@ -509,6 +536,11 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
   '';
+
+
+
+#### DEFAULT APPLICATIONS ####
+
 
   home.file.".config/mimeapps.list".text = ''
     [Default Applications]
