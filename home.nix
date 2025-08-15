@@ -229,8 +229,8 @@
   };
 
 home.activation.linkFreetubeConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  src="$HOME/.config/FreeTube/settings.db"
-  dest="$HOME/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db"
+  src="$HOME/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db"
+  dest="$HOME/.config/FreeTube/settings.db"
 
   mkdir -p "$(dirname "$dest")"
 
