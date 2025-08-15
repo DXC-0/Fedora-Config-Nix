@@ -228,17 +228,6 @@
     };
   };
 
-home.activation.linkFreetubeConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  src="$HOME/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db"
-  dest="$HOME/.config/FreeTube/settings.db"
-
-  mkdir -p "$(dirname "$dest")"
-
-  [ -f "$src" ] && ln -sf "$src" "$dest"
-'';
-
-
-
   home.file.".config/niri/config.kdl".text = ''
     input {
       keyboard {
