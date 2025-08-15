@@ -110,9 +110,7 @@ sudo sed -i 's/^#\?\s*autologin-session=.*/autologin-session=niri/' /etc/lightdm
 echo "Personnalisation"
 mv ./wall.png $USER_HOME/.config/niri/wall.png
 git clone https://github.com/cbrnix/Flatery.git "$USER_HOME/Flatery"
-sudo "bash '$USER_HOME/Flatery/install.sh'"
-dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-dconf write /org/gnome/desktop/interface/icon-theme "'Flatery-Indigo-Dark'"
+mv $USER_HOME/Flatery/* "$USER_HOME/.icons/
 
 echo "Installation terminée !"
 
