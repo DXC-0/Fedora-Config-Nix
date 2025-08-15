@@ -24,10 +24,8 @@ sudo dnf install -y \
 echo "📦 Installation des outils système 📦"
 sudo dnf install --setopt=install_weak_deps=False -y \
   git \
-  # alacritty (nix)
   curl \
   neovim \
-  # tmux (nix)
   btop \
   ddcutil \
   gnome-keyring \
@@ -50,8 +48,6 @@ sudo dnf install --setopt=install_weak_deps=False -y \
   nautilus \
   slurp \
   xwayland-satellite \
-  # wofi (nix)
-  # dunst (nix)
   niri \
   lightdm-gtk \
   xdg-desktop-portal-gnome \
