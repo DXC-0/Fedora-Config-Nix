@@ -110,7 +110,7 @@ sudo sed -i 's/^#\?\s*autologin-session=.*/autologin-session=niri/' /etc/lightdm
 echo "Personnalisation"
 mv ./wall.png $USER_HOME/.config/niri/wall.png
 git clone https://github.com/cbrnix/Flatery.git "$USER_HOME/Flatery"
-mkdir $HOME/.icons/
+mkdir $USER_HOME/.icons/
 mv $USER_HOME/Flatery/* "$USER_HOME/.icons/
 
 echo "Installation terminée !"
