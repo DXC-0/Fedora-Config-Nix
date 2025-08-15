@@ -90,7 +90,7 @@ sudo -u "$NON_ROOT_USER" bash -c "
   echo '. \$HOME/.nix-profile/etc/profile.d/nix.sh' >> \"$USER_HOME/.zshrc\"
 "
 
-echo "🏠 Installation de Home Manager"
+echo "Installation de Home Manager"
 sudo -u "$NON_ROOT_USER" bash -c "
   . \"$USER_HOME/.nix-profile/etc/profile.d/nix.sh\"
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -106,7 +106,7 @@ sudo -u "$NON_ROOT_USER" bash -c "
   home-manager switch
 "
 
-echo "✅ Installation terminée !"
+echo "Installation terminée !"
 
 echo "Redémarrage dans 5 secondes..."
 sleep 5
