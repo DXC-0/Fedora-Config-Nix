@@ -25,6 +25,7 @@ echo "📦 Installation des outils système 📦"
 sudo dnf install --setopt=install_weak_deps=False -y \
   git \
   curl \
+  alacritty \
   neovim \
   btop \
   ddcutil \
