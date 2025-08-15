@@ -32,7 +32,6 @@ sudo dnf install --setopt=install_weak_deps=False -y \
   gnome-keyring \
   gvfs \
   gvfs-smb \
-  alacritty \
   git
 
 echo "📦 Installation des outils de conteneurisation 📦"
